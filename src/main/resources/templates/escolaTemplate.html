@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Escola</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Escolas</h1>
+    <form th:action="@{/salvarescola}" method="POST">
+        <label >Nome:</label><input type="text" name="name" required><br><br>
+        <label>Endereço:</label><input type="text" name="endereco" required><br><br>
+        <input type=submit value="Salvar">
+    </form>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" escola: ${escolas}">
+                <td th:text="${escola.name}"></td>
+                <td th:text="${escola.endereco}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button><a href="/">Menu</a></button>
+
+</body>
+</html>
